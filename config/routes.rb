@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get("/flexible/payment/:apr/:years/:principal",{:controller => "calc", :action => "flex_payment"})
   get("flexible/random/:low_num/:high_num",{:controller => "calc", :action => "random_num"})
   get("/square/new",{:controller => "calc", :action => "new_square_form"})
-  get("/root/new",{:controller => "calc", :action => "new_root_form"})
+  get("/square_root/new",{:controller => "calc", :action => "new_root_form"})
   get("/payment/new",{:controller => "calc", :action => "new_payment_form"})
   get("/random/new",{:controller => "calc", :action => "new_random_form"})
   get("/square/results",{:controller => "calc", :action => "square_results"})

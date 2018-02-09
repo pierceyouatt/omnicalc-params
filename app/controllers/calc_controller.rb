@@ -39,9 +39,9 @@ class CalcController < ApplicationController
     render("/omni_templates/root_results_view.html.erb")
   end
   def payment_results
-    @my_apr = params.fetch("user_apr").to_f/100
+    @my_apr = params.fetch("user_apr").to_f
     @my_years = params.fetch("user_years").to_i
-    @my_principal = params.fetch("user_principal").to_i
+    @my_principal = params.fetch("user_principal").to_f
     @my_payment = (@my_apr/1200*@my_principal)/(1-((1+@my_apr/1200)**(-12*@my_years)))
     render("/omni_templates/payment_results_view.html.erb")
   end
@@ -52,9 +52,9 @@ class CalcController < ApplicationController
     render("/omni_templates/random_results_view.html.erb")
   end
   def random_num
-    @low_num = params.fetch("low_num").to_i
-    @high_num = params.fetch("high_num").to_i
-    @result = rand(@high_num-@low_now)+@low_num
+    @this_min = params.fetch("low_num").to_i
+    @this_max = params.fetch("high_num").to_i
+    @result = (rand(@this_max - @this_min) + @this_min)
     render("/omni_templates/flex_random_number_view.html.erb")
   end
 end
